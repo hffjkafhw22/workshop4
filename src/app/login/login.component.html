@@ -1,34 +1,20 @@
 <router-outlet></router-outlet>
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-<div id="login" class="container">
-  <div class="row-fluid">
-    <div class="span12">
-      <div class="login well well-small">
-        <div class="center">
-          <img src="assets/1.jpg" alt="logo"> 
-        </div>
-        <form action="/users/login" style="" class="login-form" id="UserLoginForm" method="post" accept-charset="utf-8">
-          <div class="control-group">
-            <div class="input-prepend">
-              <span class="add-on"><i class="icon-user"></i></span>
-              <input name="data[User][username]" required="required" placeholder="Username" maxlength="255" type="text" id="UserUsername"> 
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="input-prepend">
-              <span class="add-on"><i class="icon-lock"></i></span>
-              <input name="data[User][password]" required="required" placeholder="Password" type="password" id="UserPassword"> 
-            </div>
-          </div>
-          <div class="control-group">
-            <label id="remember-me">
-              <input type="checkbox" name="data[User][remember_me]" value="1" id="UserRememberMe"> Remember Me?</label>
-          </div>
-          <div class="control-group">
-            <input class="btn btn-primary btn-large btn-block" type="submit" value="Sign in"> 
-          </div>
-        </form>
-      </div><!--/.login-->
-    </div><!--/.span12-->
-  </div><!--/.row-fluid-->
-</div><!--/.container-->
+<div class="login-page">
+    <div class="form">
+      <form class="register-form">
+        <input type="email" name="email" id="email" placeholder="Email" required="required" [(ngModel)]= "email">
+        <input type="password" name="password" id="password" placeholder="Password" required="required" [(ngModel)]= "password">
+        <button>create</button>
+        
+      </form>
+      
+      <form class="login-form">
+          <input type="email" name="emailusername" id="emailusername" placeholder="emailusername" required="required" [(ngModel)]= "emailusername">
+          <input type="password" name="emailpassword" id="emailpassword" placeholder="emailpassword" required="emailpassword" [(ngModel)]= "emailpassword">
+          <button (click)="itemClicked()">login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+    </div>
+    
+  </div>
