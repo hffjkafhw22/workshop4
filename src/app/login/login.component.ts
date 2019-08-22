@@ -11,8 +11,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username = "";
-  password = "";
+  emailusername = "";
+  emailpassword = "";
   lists = [{'email':'123@123', 'password':'123'},{'email':'1234@1234', 'password':'1234'},{'email':'1234@123', 'password':'123456'}]
 
   constructor(private router: Router, private from :FormsModule) { }
@@ -23,17 +23,18 @@ export class LoginComponent implements OnInit {
   }
 
   itemClicked() {
-    var valid = false
-    for(let i=0;i<3;i++){
-      
-      if (this.username == this.lists[i].email && this.password == this.lists[i].email){
+    let valid = false;
+    alert("username:"+this.emailusername);
+    for (let i = 0; i < 3; i++) {
+  
+      if ((this.emailusername === this.lists[i].email) && (this.emailpassword === this.lists[i].password)){
         valid = true;
-        alert("OK");
+   
         this.nav();
       }
-
+ 
     }
-    if ( valid == false){
+    if ( valid === false){
       alert("something wrong");
     }
   }
