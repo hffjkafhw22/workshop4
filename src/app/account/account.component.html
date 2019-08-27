@@ -3,5 +3,22 @@
 <h2>Accounts Page</h2>
 <img src="assets/1.jpg" alt="logo"> 
 
+<div *ngIf="isLoggedIn">
+  <p>username:<span>{{ username }}</span> 
+      </label>
+      <div>
+        <label>
+      <p>Email Address:<span>{{ emailaddress }}</span>
+        </label>
+        <label>
+            <p>age:<span>{{ age }}}</span>
+              </label>
+              <label>
+                <p>birthdate:<span>{{ birthdate }}</span>
+                  </label>
+                  
+      </div>   
 
+
+</div>
 <router-outlet></router-outlet>

@@ -1,9 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { from } from 'rxjs';
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+
+  
+};
+
+import { NgForm } from '@angular/forms';
 
 
 
+const BACKEND_URL = 'http://localhost:3000';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +21,15 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  isLoggedin = false;
+  username : string;
+  account: {
+    birthdate:string;
+    age:number;
+    email: string;
+    password:string; 
+  }
+
   emailusername = "";
   emailpassword = "";
   lists = [{'email':'123@123', 'password':'123'},{'email':'1234@1234', 'password':'1234'},{'email':'1234@123', 'password':'123456'}]
@@ -29,7 +48,8 @@ export class LoginComponent implements OnInit {
   
       if ((this.emailusername === this.lists[i].email) && (this.emailpassword === this.lists[i].password)){
         valid = true;
-   
+        //localStorage.setItem(“username”，“”)；
+
         this.nav();
       }
  
@@ -44,3 +64,4 @@ export class LoginComponent implements OnInit {
       }
     
 }
+
